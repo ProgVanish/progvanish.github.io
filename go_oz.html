@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Камин Оз</title>
 
-  <!-- Шрифт заголовка (динамика/движение) -->
+  <!-- Шрифт динамичного заголовка -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
@@ -19,10 +19,7 @@
       --accent: #5de6ff;
       --accent-2:#7cffb2;
       --focus: #9c7cff;
-      --danger:#ff6b6b;
       --radius: 16px;
-      --badge-bg: rgba(124,255,178,0.12);
-      --badge-brd: rgba(124,255,178,0.35);
     }
 
     * { box-sizing: border-box; }
@@ -37,7 +34,7 @@
     }
 
     .wrap {
-      min-height: 140vh; /* добавим высоту для демонстрации скролла */
+      min-height: 140vh;
       display: grid;
       place-items: center;
       padding: 24px;
@@ -49,337 +46,125 @@
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: var(--radius);
       padding: clamp(18px, 4vw, 28px);
-      box-shadow:
-        0 20px 60px rgba(12, 16, 40, 0.6),
-        inset 0 0 0 1px rgba(255,255,255,0.02);
+      box-shadow: 0 20px 60px rgba(12, 16, 40, 0.6), inset 0 0 0 1px rgba(255,255,255,0.02);
       backdrop-filter: blur(6px);
     }
 
-    .header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: clamp(16px, 3.5vw, 28px);
-      text-align: center;
-    }
-
+    .header { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: clamp(16px, 3.5vw, 28px); text-align: center; }
     .brand {
       font-family: 'Orbitron', system-ui, sans-serif;
-      font-weight: 800;
-      font-size: clamp(28px, 5vw, 56px);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      line-height: 1.1;
+      font-weight: 800; font-size: clamp(28px, 5vw, 56px);
+      letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.1;
       background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
       text-shadow: 0 0 22px rgba(93, 230, 255, 0.12);
       animation: dash 3.6s ease-in-out infinite;
     }
-    @keyframes dash {
-      0% { letter-spacing: 0.06em; text-shadow: 0 0 22px rgba(93, 230, 255, 0.12); }
-      50% { letter-spacing: 0.085em; text-shadow: 0 0 28px rgba(93, 230, 255, 0.18); }
-      100% { letter-spacing: 0.06em; text-shadow: 0 0 22px rgba(93, 230, 255, 0.12); }
-    }
+    @keyframes dash { 0%{letter-spacing:.06em; text-shadow:0 0 22px rgba(93,230,255,.12);} 50%{letter-spacing:.085em; text-shadow:0 0 28px rgba(93,230,255,.18);} 100%{letter-spacing:.06em; text-shadow:0 0 22px rgba(93,230,255,.12);} }
+    .subtitle { color: var(--muted); font-size: clamp(13px, 2.5vw, 16px); margin-top: 8px; text-align: center; }
 
-    .subtitle {
-      color: var(--muted);
-      font-size: clamp(13px, 2.5vw, 16px);
-      margin-top: 8px;
-      text-align: center;
-    }
-
-    .form {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 12px;
-      align-items: center;
-      margin-top: 8px;
-    }
-
+    .form { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; margin-top: 8px; }
     .input {
-      width: 100%;
-      padding: 16px 18px;
-      border-radius: calc(var(--radius) - 6px);
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      font-size: clamp(14px, 2.8vw, 16px);
-      outline: none;
+      width: 100%; padding: 16px 18px; border-radius: calc(var(--radius) - 6px);
+      border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04);
+      color: var(--text); font-size: clamp(14px, 2.8vw, 16px); outline: none;
       transition: border-color .2s, box-shadow .2s, background-color .2s;
     }
     .input::placeholder { color: var(--muted); }
-    .input:focus {
-      border-color: var(--focus);
-      box-shadow: 0 0 0 3px rgba(156,124,255,0.18);
-      background: rgba(255,255,255,0.06);
-    }
+    .input:focus { border-color: var(--focus); box-shadow: 0 0 0 3px rgba(156,124,255,0.18); background: rgba(255,255,255,0.06); }
 
     .send {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 14px;
-      border: 1px solid rgba(255,255,255,0.10);
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 14px; border: 1px solid rgba(255,255,255,0.10);
       background: linear-gradient(180deg, rgba(93,230,255,0.18), rgba(124,255,178,0.14));
-      color: var(--text);
-      border-radius: calc(var(--radius) - 8px);
-      cursor: pointer;
-      transition: transform .08s ease, filter .2s ease, box-shadow .2s ease, background .2s ease;
-      will-change: transform;
+      color: var(--text); border-radius: calc(var(--radius) - 8px);
+      cursor: pointer; transition: transform .08s ease, filter .2s ease, box-shadow .2s ease, background .2s ease;
     }
     .send:hover { filter: brightness(1.08); box-shadow: 0 8px 22px rgba(93,230,255,0.24); }
     .send:active { transform: translateY(1px) scale(0.99); }
-    .send svg {
-      width: clamp(22px, 4.2vw, 28px);
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 0 10px rgba(93,230,255,0.25));
-    }
+    .send .icon { font-size: 22px; }
 
-    /* FAB: плавающая кнопка с карандашом (скрыта до скролла) */
+    /* FAB */
     .fab {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.10);
+      position: fixed; right: 20px; bottom: 20px; width: 56px; height: 56px;
+      border-radius: 50%; border: 1px solid rgba(255,255,255,0.10);
       background: linear-gradient(180deg, rgba(156,124,255,0.25), rgba(93,230,255,0.18));
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
+      color: var(--text); display: grid; place-items: center; cursor: pointer;
       box-shadow: 0 10px 30px rgba(12,16,40,0.6);
-      opacity: 0;
-      transform: translateY(20px);
-      pointer-events: none;
-      transition: opacity .25s ease, transform .25s ease;
-      z-index: 20;
+      opacity: 0; transform: translateY(20px); pointer-events: none;
+      transition: opacity .25s ease, transform .25s ease; z-index: 20;
     }
-    .fab.visible {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    .fab svg {
-      width: 26px; height: 26px;
-      filter: drop-shadow(0 0 8px rgba(156,124,255,0.35));
-    }
+    .fab.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .fab .icon { font-size: 24px; }
 
-    /* Модальные окна (общая обёртка) */
-    .modal {
-      position: fixed;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      background: rgba(6, 8, 20, 0.55);
-      backdrop-filter: blur(6px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .2s ease;
-      z-index: 50;
-    }
+    /* Модалки */
+    .modal { position: fixed; inset: 0; display: grid; place-items: center;
+      background: rgba(6, 8, 20, 0.55); backdrop-filter: blur(6px);
+      opacity: 0; pointer-events: none; transition: opacity .2s ease; z-index: 50; }
     .modal.show { opacity: 1; pointer-events: auto; }
-
     .modal-card {
-      width: min(560px, calc(100% - 32px));
-      background: color-mix(in hsl, var(--card) 92%, black 8%);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      padding: 20px;
-      box-shadow: 0 20px 60px rgba(12,16,40,0.7);
-      animation: pop .2s ease;
+      width: min(560px, calc(100% - 32px)); background: color-mix(in hsl, var(--card) 92%, black 8%);
+      border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 20px;
+      box-shadow: 0 20px 60px rgba(12,16,40,0.7); animation: pop .2s ease;
     }
     @keyframes pop { from { transform: scale(0.98); opacity: .8; } to { transform: scale(1); opacity: 1; } }
-
-    .modal-header {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 12px;
-    }
-    .modal-header h3 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 700;
-    }
+    .modal-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .modal-header h3 { margin: 0; font-size: 20px; font-weight: 700; }
     .modal-body { color: var(--text); }
 
-    .close-x {
-      margin-left: auto;
-      background: transparent;
-      border: none;
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 18px;
-    }
-
-    /* Анимация лупы (поиск) */
-    .spinner {
-      width: 36px; height: 36px;
-      display: inline-grid; place-items: center;
-      margin-right: 8px;
-    }
-    .spinner .ring {
-      width: 36px; height: 36px; border-radius: 50%;
-      border: 3px solid rgba(93,230,255,0.15);
-      border-top-color: var(--accent);
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* Бейджи интересов */
-    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
-    .badge {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--badge-bg);
-      border: 1px solid var(--badge-brd);
-      color: #b9ffde;
-      font-size: 13px;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    /* Форма профиля внутри модалки */
-    .profile-form {
-      display: grid;
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .row { display: grid; gap: 6px; }
-    .row label { color: var(--muted); font-size: 14px; }
-    .row input[type="text"], .row textarea {
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      outline: none;
-      transition: border-color .2s, box-shadow .2s, background-color .2s;
-      font-size: 14px;
-    }
-    .row textarea { min-height: 96px; resize: vertical; }
-    .row input:focus, .row textarea:focus {
-      border-color: var(--focus);
-      box-shadow: 0 0 0 3px rgba(156,124,255,0.18);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .actions {
-      display: flex; gap: 10px; justify-content: flex-end; margin-top: 6px;
-    }
-    .btn {
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
-      cursor: pointer;
-    }
-    .btn-primary {
-      background: linear-gradient(180deg, rgba(124,255,178,0.22), rgba(93,230,255,0.18));
-      border-color: rgba(124,255,178,0.4);
-    }
-
-    /* Кнопка "Войти в комнату" */
-    .enter-btn {
-      margin-top: 14px;
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 12px 16px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: linear-gradient(180deg, rgba(93,230,255,0.18), rgba(124,255,178,0.14));
-      color: var(--text);
-      cursor: pointer;
-    }
-    .enter-btn svg { width: 22px; height: 22px; }
-
-    /* Адаптация */
     @media (max-width: 540px) {
       .form { grid-template-columns: 1fr; }
       .send { padding: 14px 16px; }
     }
 
-    /* Доступность */
-    .sr-only {
-      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0,0,0,0); border: 0;
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+    /* Конфетти-канвас поверх всего */
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 60; /* выше модалок */
+      display: none; /* по умолчанию скрыт */
     }
+    #confetti-canvas.show { display: block; }
   </style>
 </head>
 <body>
   <main class="wrap">
     <section class="card" role="form" aria-labelledby="title">
       <div class="header">
-        <h1 id="title" class="brand">камин Оз</h1>
+        <h1 id="title" class="brand">Камин Оз</h1>
       </div>
       <p class="subtitle">Смело вперёд — курс на изумрудные горизонты.</p>
 
       <form class="form" id="oz-form" autocomplete="on">
         <label for="goal" class="sr-only">Цель похода в Страну Оз</label>
         <input
-          id="goal"
-          class="input"
-          type="text"
-          name="goal"
-          placeholder="С какой целью идём в Страну Оз?"
-          aria-label="С какой целью идём в Страну Оз?"
-          required
+          id="goal" class="input" type="text" name="goal"
+          placeholder="С какой целью идём в Страну Оз?" aria-label="С какой целью идём в Страну Оз?" required
         />
         <button class="send" type="submit" aria-label="Отправить цель">
-          <!-- Иконка бегущего человечка -->
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M13.5 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="url(#g1)"/>
-            <path d="M7.8 21c.5-1.7 1.2-3 2-4 .8-.9 1.9-1.5 3.2-1.9l2.3-.7c.8-.3 1.4-.9 1.7-1.7.3-.8.3-1.6 0-2.4l-.4-1.2c-.2-.5-.6-.9-1.1-1.2-.6-.3-1.2-.3-1.8-.1l-2.4.8c-.6.2-1.2.1-1.7-.2l-1.5-1c-.7-.5-1.7-.3-2.2.4-.5.7-.3 1.7.4 2.2l1 .7c1 .7 2.2.9 3.3.6l1.3-.4-.7 1.9c-.4 1-1.2 1.8-2.2 2.3l-1.6.7c-1.2.5-2.1 1.6-2.4 2.9L5.6 21h2.2Z" fill="url(#g2)"/>
-            <path d="M17.8 21.2c.7 0 1.2-.6 1.2-1.3s-.6-1.2-1.3-1.2l-3.7.1c-.5 0-1-.4-1.1-.9l-.1-.5c-.1-.7.3-1.3 1-1.5l3.3-1c1.8-.5 2.9-2.4 2.4-4.2l-.4-1.5c-.1-.5-.7-.8-1.2-.7-.5.1-.8.7-.7 1.2l.4 1.5c.2.8-.3 1.7-1.1 1.9l-3.3 1c-1.8.5-3 2.3-2.7 4.1l.1.5c.2 1.3 1.3 2.3 2.6 2.3l3.6-.1Z" fill="url(#g3)"/>
-            <defs>
-              <linearGradient id="g1" x1="11" y1="3.5" x2="16" y2="8.5" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#5DE6FF"/><stop offset="1" stop-color="#7CFFB2"/>
-              </linearGradient>
-              <linearGradient id="g2" x1="5" y1="8" x2="18" y2="21" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#5DE6FF"/><stop offset="1" stop-color="#9C7CFF"/>
-              </linearGradient>
-              <linearGradient id="g3" x1="10" y1="11" x2="20" y2="20" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#7CFFB2"/><stop offset="1" stop-color="#5DE6FF"/>
-              </linearGradient>
-            </defs>
-          </svg>
+          <span class="icon" aria-hidden="true">🏃‍♂️</span>
         </button>
       </form>
     </section>
   </main>
 
-  <!-- FAB с карандашом -->
+  <!-- FAB (карандаш) -->
   <button class="fab" id="fab" aria-label="Редактировать профиль" title="Редактировать профиль">
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M3 17.25V21h3.75L19.81 7.94l-3.75-3.75L3 17.25Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" fill="rgba(255,255,255,0.06)"/>
-      <path d="M20.71 6.04a1 1 0 0 0 0-1.41l-1.34-1.34a1 1 0 0 0-1.41 0l-1.83 1.83 2.75 2.75 1.83-1.83Z" fill="rgba(124,255,178,0.85)"/>
-    </svg>
+    <span class="icon" aria-hidden="true">✏️</span>
   </button>
 
   <!-- Модалка профиля -->
   <div class="modal" id="profile-modal" aria-hidden="true" role="dialog" aria-labelledby="profile-title">
     <div class="modal-card">
       <div class="modal-header">
-        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="7" r="4" fill="url(#ph)" />
-          <path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" fill="url(#ph2)" />
-          <defs>
-            <linearGradient id="ph" x1="8" y1="3" x2="16" y2="11">
-              <stop stop-color="#5DE6FF"/><stop offset="1" stop-color="#7CFFB2"/>
-            </linearGradient>
-            <linearGradient id="ph2" x1="6" y1="14" x2="18" y2="22">
-              <stop stop-color="#7CFFB2"/><stop offset="1" stop-color="#9C7CFF"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <span aria-hidden="true">👤</span>
         <h3 id="profile-title">Профиль</h3>
-        <button class="close-x" id="profile-close" aria-label="Закрыть">✕</button>
+        <button class="btn" id="profile-close" aria-label="Закрыть">✕</button>
       </div>
       <div class="modal-body">
         <form id="profile-form" class="profile-form" autocomplete="on">
@@ -404,29 +189,15 @@
     </div>
   </div>
 
-  <!-- Модалка поиска собеседника -->
+  <!-- Модалка поиска -->
   <div class="modal" id="search-modal" aria-hidden="true" role="dialog" aria-labelledby="search-title">
     <div class="modal-card" style="text-align:center">
       <div class="modal-header" style="justify-content:center">
-        <div class="spinner" aria-hidden="true">
-          <div class="ring"></div>
-        </div>
+        <div class="spinner" aria-hidden="true"><div class="ring"></div></div>
         <h3 id="search-title" style="margin:0">Ищем собеседника</h3>
       </div>
       <div class="modal-body" style="display:flex; align-items:center; justify-content:center; gap:10px; color:var(--muted);">
-        <!-- Иконка лупы -->
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="animation: spin 2s linear infinite;">
-          <circle cx="11" cy="11" r="7" stroke="url(#mg1)" stroke-width="2"/>
-          <path d="M16.5 16.5 21 21" stroke="url(#mg2)" stroke-width="2" stroke-linecap="round"/>
-          <defs>
-            <linearGradient id="mg1" x1="4" y1="4" x2="18" y2="18">
-              <stop stop-color="#5DE6FF"/><stop offset="1" stop-color="#9C7CFF"/>
-            </linearGradient>
-            <linearGradient id="mg2" x1="16.5" y1="16.5" x2="21" y2="21">
-              <stop stop-color="#7CFFB2"/><stop offset="1" stop-color="#5DE6FF"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <span aria-hidden="true" style="font-size:22px; animation: spin 2s linear infinite; display:inline-block;">🔎</span>
         <span>подбираем по интересам…</span>
       </div>
     </div>
@@ -436,39 +207,26 @@
   <div class="modal" id="match-modal" aria-hidden="true" role="dialog" aria-labelledby="match-title">
     <div class="modal-card">
       <div class="modal-header">
-        <!-- Иконка хлопушки -->
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M3 21l4-10 10 4-14 6Z" fill="url(#pp1)"/>
-          <path d="M14.5 3.5l1 2M19 6l2 1M17 3l2-1" stroke="url(#pp2)" stroke-width="1.6" stroke-linecap="round"/>
-          <defs>
-            <linearGradient id="pp1" x1="3" y1="11" x2="17" y2="19">
-              <stop stop-color="#7CFFB2"/><stop offset="1" stop-color="#5DE6FF"/>
-            </linearGradient>
-            <linearGradient id="pp2" x1="14" y1="3" x2="21" y2="7">
-              <stop stop-color="#5DE6FF"/><stop offset="1" stop-color="#9C7CFF"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <span aria-hidden="true">🎉</span>
         <h3 id="match-title">Это метч!</h3>
-        <button class="close-x" id="match-close" aria-label="Закрыть">✕</button>
+        <button class="btn" id="match-close" aria-label="Закрыть">✕</button>
       </div>
       <div class="modal-body">
         <div id="match-name" style="font-size:18px; font-weight:700; margin-bottom:6px;"></div>
         <div id="match-about" style="color:var(--muted); margin-bottom:8px;"></div>
-        <div style="margin-top:10px;">Вы оба интересуетесь этим:</div>
-        <div class="badges" id="match-badges"></div>
+        <div style="margin-top:10px;">Ваши интересы:</div>
+        <div id="match-interests" style="color: var(--text); margin-top:6px;"></div>
 
-        <button class="enter-btn" id="enter-room">
-          <!-- Иконка двери -->
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M5 21V5a2 2 0 0 1 2-2h8l4 4v14H5Z" stroke="rgba(255,255,255,0.9)" stroke-width="1.5"/>
-            <circle cx="14" cy="13" r="1" fill="#7CFFB2"/>
-          </svg>
+        <button class="enter-btn" id="enter-room" style="margin-top:14px; display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; border:1px solid rgba(255,255,255,0.12); background: linear-gradient(180deg, rgba(93,230,255,0.18), rgba(124,255,178,0.14)); color: var(--text); cursor: pointer;">
+          <span class="icon" aria-hidden="true">🚪</span>
           войти в комнату
         </button>
       </div>
     </div>
   </div>
+
+  <!-- Канвас конфетти -->
+  <canvas id="confetti-canvas"></canvas>
 
   <script>
     // Элементы
@@ -488,43 +246,39 @@
     const matchClose = document.getElementById('match-close');
     const matchName = document.getElementById('match-name');
     const matchAbout = document.getElementById('match-about');
-    const matchBadges = document.getElementById('match-badges');
+    const matchInterests = document.getElementById('match-interests');
     const enterRoom = document.getElementById('enter-room');
 
-    // Ключи хранилища
+    const confettiCanvas = document.getElementById('confetti-canvas');
+    const ctx = confettiCanvas.getContext('2d');
+
     const LS_KEY = 'oz_profile_v1';
 
-    // Утилиты
+    // Хранилище
     const saveProfile = (data) => {
       try { localStorage.setItem(LS_KEY, JSON.stringify(data)); }
       catch (e) { console.warn('Не удалось сохранить профиль:', e); }
     };
     const loadProfile = () => {
-      try {
-        const raw = localStorage.getItem(LS_KEY);
-        return raw ? JSON.parse(raw) : null;
-      } catch(e) { return null; }
+      try { const raw = localStorage.getItem(LS_KEY); return raw ? JSON.parse(raw) : null; }
+      catch(e) { return null; }
     };
-    const clearProfile = () => {
-      try { localStorage.removeItem(LS_KEY); } catch(e){}
-    };
+    const clearProfile = () => { try { localStorage.removeItem(LS_KEY); } catch(e){} };
 
     const openModal = (el) => el.classList.add('show');
     const closeModal = (el) => el.classList.remove('show');
 
-    // Показ FAB только после прокрутки
+    // FAB показывается после прокрутки
     const onScroll = () => {
       const scrolled = window.scrollY || document.documentElement.scrollTop;
       if (scrolled > 40) fab.classList.add('visible');
       else fab.classList.remove('visible');
     };
     window.addEventListener('scroll', onScroll, { passive: true });
-    // первичная инициализация
     onScroll();
 
-    // FAB открывает профиль
+    // Открытие профиля
     fab.addEventListener('click', () => {
-      // Подставим сохранённые значения
       const data = loadProfile();
       if (data) {
         nameInput.value = data.name || '';
@@ -534,21 +288,22 @@
       openModal(profileModal);
     });
     profileClose.addEventListener('click', () => closeModal(profileModal));
-    profileModal.addEventListener('click', (e) => {
-      if (e.target === profileModal) closeModal(profileModal);
-    });
+    profileModal.addEventListener('click', (e) => { if (e.target === profileModal) closeModal(profileModal); });
 
     // Сохранение профиля
     profileForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = nameInput.value.trim();
       const about = aboutInput.value.trim();
-      const interestsRaw = interestsInput.value
-        .split(/[,;\n]+/).map(s => s.trim()).filter(Boolean);
-      // нормализуем интересы: к нижнему регистру для пересечения
-      const normalized = interestsRaw.map(s => s.replace(/\s+/g, ' ').trim());
-      const data = { name, about, interests: normalized };
-      saveProfile(data);
+      const interestsRaw = interestsInput.value.split(/[,;\n]+/).map(s => s.trim()).filter(Boolean);
+      const uniq = [];
+      const seen = new Set();
+      for (const tag of interestsRaw) {
+        const norm = tag.replace(/\s+/g, ' ').trim();
+        const low = norm.toLowerCase();
+        if (!seen.has(low)) { seen.add(low); uniq.push(norm); }
+      }
+      saveProfile({ name, about, interests: uniq });
       closeModal(profileModal);
     });
 
@@ -560,65 +315,121 @@
       aboutInput.value = '';
     });
 
-    // Обработка основной формы: поиск -> матч
+    // Конфетти
+    function resizeCanvas() {
+      confettiCanvas.width = window.innerWidth;
+      confettiCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+
+    function launchConfetti({ duration = 2500, particleCount = 160 } = {}) {
+      resizeCanvas();
+      confettiCanvas.classList.add('show');
+
+      const colors = ['#7CFFB2', '#5DE6FF', '#9C7CFF', '#FFD166', '#FF6B6B', '#F7B801'];
+      const gravity = 0.16;
+      const drag = 0.005;
+      const terminalVelocity = 5;
+      const ticks = 60 * (duration / 1000);
+
+      const rand = (min, max) => Math.random() * (max - min) + min;
+
+      const particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        const angle = rand(-Math.PI, 0); // вверх с разлётом
+        const speed = rand(5, 12);
+        particles.push({
+          x: confettiCanvas.width / 2 + rand(-80, 80),
+          y: confettiCanvas.height * 0.25,
+          w: rand(6, 12),
+          h: rand(8, 16),
+          color: colors[(Math.random() * colors.length) | 0],
+          tilt: rand(-0.6, 0.6),
+          tiltSpeed: rand(0.02, 0.05),
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          opacity: 1,
+          rotation: rand(0, Math.PI * 2),
+          rotationSpeed: rand(-0.2, 0.2),
+        });
+      }
+
+      let frame = 0;
+      function draw() {
+        ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        for (const p of particles) {
+          // Физика
+          p.vy = Math.min(p.vy + gravity, terminalVelocity);
+          p.vx *= (1 - drag);
+          p.x += p.vx;
+          p.y += p.vy;
+          p.tilt += p.tiltSpeed;
+          p.rotation += p.rotationSpeed;
+
+          // Рисуем прямоугольник-конфетти
+          ctx.save();
+          ctx.globalAlpha = Math.max(p.opacity, 0);
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rotation);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.w / 2, -p.h / 2 + Math.sin(p.tilt) * 2, p.w, p.h);
+          ctx.restore();
+        }
+
+        frame++;
+        if (frame < ticks) {
+          requestAnimationFrame(draw);
+        } else {
+          // плавно скрываем
+          confettiCanvas.classList.remove('show');
+          ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    // Основной сабмит: поиск -> конфетти -> метч
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Показать "Ищем собеседника"
       openModal(searchModal);
 
-      // Через 2 секунды открыть "Это метч!"
       setTimeout(() => {
         closeModal(searchModal);
 
-        // Подготовить данные матча
-        const profile = loadProfile() || { name: 'Путник', about: 'В пути к Изумрудному Городу', interests: [] };
+        // Запуск конфетти
+        launchConfetti({ duration: 2500, particleCount: 180 });
 
-        // Для демо создадим "собеседника" и найдём пересечение интересов.
-        // В реальном приложении это вернет сервер.
-        const other = {
-          name: 'Гость из Изумрудного города',
-          about: 'Люблю путешествия и новые знакомства.',
-          interests: ['путешествия', 'музыка', 'фильмы', 'дизайн']
-        };
+        // Показать "метч" после небольшой задержки (чтобы конфетти успели начаться)
+        setTimeout(() => {
+          const profile = loadProfile() || { name: 'Путник', about: 'В пути к Изумрудному Городу', interests: [] };
 
-        // Пересечение интересов (регистр игнорируем)
-        const setSelf = new Set((profile.interests || []).map(i => i.toLowerCase()));
-        const common = (other.interests || []).filter(i => setSelf.has(i.toLowerCase()));
+          matchName.textContent = profile.name ? profile.name : 'Путник';
+          matchAbout.textContent = profile.about ? profile.about : 'Готов(а) к новым открытиям.';
+          const interestsText = (profile.interests && profile.interests.length)
+            ? profile.interests.join(', ')
+            : 'новые знакомства';
+          matchInterests.textContent = interestsText;
 
-        // Заполнить модалку матча
-        matchName.textContent = profile.name ? profile.name : 'Путник';
-        matchAbout.textContent = profile.about ? profile.about : 'Готов(а) к новым открытиям.';
-        // Бейджи интересов
-        matchBadges.innerHTML = '';
-        (common.length ? common : ['новые знакомства']).forEach(tag => {
-          const b = document.createElement('span');
-          b.className = 'badge';
-          b.textContent = tag;
-          matchBadges.appendChild(b);
-        });
-
-        openModal(matchModal);
+          openModal(matchModal);
+        }, 350); // небольшая пауза перед показом окна
       }, 2000);
 
-      // Очистим ввод цели (опционально)
-      const value = new FormData(form).get('goal');
+      // Очистка поля цели (опционально)
       form.reset();
     });
 
-    // Закрыть модалку матча
+    // Закрытие модалок
     matchClose.addEventListener('click', () => closeModal(matchModal));
-    matchModal.addEventListener('click', (e) => {
-      if (e.target === matchModal) closeModal(matchModal);
-    });
+    matchModal.addEventListener('click', (e) => { if (e.target === matchModal) closeModal(matchModal); });
 
     // "Войти в комнату" — заглушка
     enterRoom.addEventListener('click', () => {
-      alert('Добро пожаловать! Откроем комнату чата в следующей версии.');
+      alert('Высокая нагрузка! Заполни форму: cmne.life/ozform');
       closeModal(matchModal);
     });
 
-    // Доступность: ESC закрывает верхнюю открытую модалку
+    // ESC закрывает активные модалки
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         [matchModal, searchModal, profileModal].forEach(m => m.classList.remove('show'));
